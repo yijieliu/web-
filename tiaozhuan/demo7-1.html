@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页</title>
+    <script>
+     function myAjax (_data, _url, callBack) {
+        $.ajax({
+            type: "post",
+            url: _url,
+            data: _data,
+            cache: false,
+            datatype: "json",
+            success: function (data) {
+                if (callBack != undefined) {
+                    callBack(data);
+                }
+            },
+            error: function () {
+               alert("错误：" +用户名重复!);
+            }
+        });
+    }
+function loginCheck(){
+  var name = $("#name").val();     
+  var pwd = $("#pwd").val();  
+  var confirmPwd = $("#cpwd").val(); 
+  var url="ajax/text.php";
+  myAjax({username:name ,password:pwd,confirmPwd:cpwd },url,function(data){
+       var obj = eval ("(" + data+ ")")[0];
+      if(obj.statue=="success"){ 
+             window.location.href="demo7-2.html";
+      }
+     else if(obj.statue="error"){
+        alert(obj.error);
+    }
+  });
+ }
+    </script>
+</head>
+<body>
+    <form action="#">
+        用户名:<input name="userName" type="text" id="name"></br>
+        密码：<input name="pwd" type="password" id="pwd"></br>
+        确认密码：<input name="confirmPwd" type="password" id="cpwd"></br>
+        <input type="submit" value="注册">
+    </form>
+</body>
+</html>
