@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商城注册页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+		<script src="js/jQuery.js"></script>
+		<script src="js/jquery.mobile-1.4.5.js"></script>
+		<link rel="stylesheet" href="css/register.css" />
+		
+	</head>
+	<body>
+		<div data-role='page' class="content">
+			<img src="images/logo.png" class="logo">
+			<div class="log">
+				<div class="contain-name">
+				  <input data-role='button' type="text" placeholder="用户名" id="name">
+				</div>
+				<span style="color: black;" id="nameErr"></span><br/>
+				<div class="contain-pwd">
+				<input data-role='button' type="password" placeholder="设置密码" id="pwd">
+				</div>
+				<span style="color: black;" id="pwdErr"></span><br/>
+				<input type="button" value="注册"  id="btn" style="background-color:antiquewhite;">
+			</div>
+			<span class="jump"><a href="login.html" style="color:honeydew;">成功啦！请登录吧</a></span>
+		</div>
+	</body>
+	<script>
+		
+		$('#btn').click(function(){
+			var name=document.getElementById('name').value;
+		    var pwd=document.getElementById('pwd').value;
+		    $('#nameErr').html('');
+			$('#pwdErr').html('');
+			if(name==''){
+				$('#nameErr').html('用户名不能为空');
+			}
+			else if(pwd==''){
+				$('#pwdErr').html('密码不能为空');
+			}
+			else{
+			$.ajax({
+				type:"get",
+				url:'http://datainfo.duapp.com/shopdata/userinfo.php',
+				data:{status:'register',userID:name,password:pwd},
+				success:function(data){
+					console.log(data);
+					if(data==0){
+					$('#nameErr').html('用户名重名');
+					}
+					else if(data==2)
+					{
+					$('#nameErr').html('数据库出问题');		
+					}
+					else{
+					alert('注册成功！');
+					window.location.href='login.html';
+					}
+				},
+				error:function(data){
+					
+				}
+			});
+		}
+		});
+	</script>
+</html>

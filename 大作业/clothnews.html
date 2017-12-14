@@ -1,0 +1,117 @@
+<<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商城详情页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+		<script src="js/jQuery.js"></script>
+		<script src="js/swiper-3.4.2.min.js"></script>
+		<link rel="stylesheet" href="css/clothnews.css" /> 
+	</head>
+	<body>
+		<!--内容设置-->
+		<div class="content">
+		  <div class="banner">
+			<div class="swiper-container">
+				    <div class="swiper-wrapper">
+				        <div class="swiper-slide">
+				        </div>
+				        <div class="swiper-slide">
+				        </div>
+				        <div class="swiper-slide">
+				        </div>
+				    </div>
+				    <div class="swiper-pagination"></div>
+	                <div class="swiper-scrollbar"></div>
+				</div>
+		  </div>
+		  <h1 id="title"><!--此处显示相应的服饰名字--></h1>
+		  <h2 id="price"><!--此处显示价格--></h2>
+		  <p class="detail">快递:12.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月销89笔&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;广东广州</p>
+		  <p class="line"></p>
+		  <ul class="choice">
+		  	<a><li style="border-top: 0.01rem solid gainsboro;">此商品已加入聚划算！</li></a>
+		  	<a><li>选择颜色分类，尺码</li></a>
+		  	<a><li>产品参数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/right1.png"></li></a>
+		  </ul>
+		</div>
+		<!--底部设置-->
+		<div class="footer">
+			<ul>
+					<li>
+						<a href="index.html">
+						<img src="images/shouye.png" class="icon">
+						<p style="color:deeppink;">首页</p>
+						</a>
+					</li>
+								<li>
+						<a href="shoppingcar.html">
+						<img src="images/car.png" class="icon">
+						<p >购物车</p>
+						</a>
+					</li>
+						<input type="button" value="加入购物车" class="addCar">
+						<input type="button" value="立即购买"class="buy">
+			</ul>
+		</div>
+	</body>
+	<script>
+		var mySwiper = new Swiper('.swiper-container',{
+		pagination : '.swiper-pagination',
+         // 如果需要滚动条
+		});
+		var goodsId=window.location.hash.slice(1);
+		$.ajax({
+				type:"get",
+				url:'http://datainfo.duapp.com/shopdata/getGoods.php',
+				dataType:'jsonp',
+				data:{goodsID:goodsId},
+				success:function(data){
+					$('#title').html(data[0].goodsName);
+					$('#price').html('¥'+data[0].price);
+				},
+				error:function(){
+				}
+			});
+		$.ajax({
+			type:"get",
+			url:'http://datainfo.duapp.com/shopdata/getGoods.php',
+			dataType:'jsonp',
+			data:{goodsID:goodsId},
+			success:function(data){
+				var banners=document.getElementsByClassName('swiper-slide');
+				var val=eval(data[0].imgsUrl);
+				for(var i=0;i<4;i++){
+				    $(banners[i]).html('<img src="'+val[i]+'">');
+				}
+			},
+			error:function(){
+			}
+		});
+		
+		//添加购物车
+		$('.addCar').click(function(){
+			var user=localStorage.getItem('username');
+			console.log(user);
+			$.ajax({
+				type:"get",
+				url:'http://datainfo.duapp.com/shopdata/updatecar.php',
+				//dataType:'jsonp',
+				data:{userID:user,goodsID:goodsId},
+				success:function(data){
+					console.log(data);
+					if(data==1){
+						alert('已加入购物车');
+					}
+					else{
+						alert('添加失败!');
+					}
+				},
+				error:function(){
+				}
+			});
+		});
+	</script>
+</html>

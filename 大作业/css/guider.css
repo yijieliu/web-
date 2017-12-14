@@ -1,0 +1,26 @@
+
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			html,body{
+				height: 100%;
+			    width:100%;
+			}
+			.swiper-slide,.swiper-container {
+			    height: 100%;
+			    width:100%;
+			    font-size: 0.5rem;
+			    text-align: center;
+			}  
+			.swiper-container img{
+			width: 100%;
+			}
+			.tiyan{
+				border: 1px solid white;
+				width: 3.2rem;
+				height: 0.8rem;
+				color: honeydew;
+				background-color:deeppink;
+				margin-top: 30px;
+			}

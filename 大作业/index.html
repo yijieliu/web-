@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>商城首页</title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+		<script src="js/jQuery.js"></script>
+		<script src="js/swiper-3.4.2.min.js"></script>
+		<script src="js/jquery.1.11.3.min.js"></script>
+	    <script src="js/iscroll.js"></script>
+	    <script src="js/navbarscroll.js"></script>
+        <link rel="stylesheet" href="css/index.css" /> 
+	</head>
+	<body>
+		<!--头部设置-->
+		<div class="header">
+			<input type="text" id="search" placeholder="搜索">
+			<a id="sou"><img class="sousuo" src="images/sou.png"></a>
+		</div>
+		<!--导航设置-->
+		<div class="wrapper" id="wrap">
+		<div class="scroller">
+			<ul id="scroll">
+				<li class="cur">首页</li>
+				<li classID='1'>衬衣</li>
+				<li classID="5">卫衣</li>
+				<li classID='2'>礼服</li>
+				<li classID='3'>棉服</li>
+				<li classID='4'>短外套</li>
+			</ul>	
+		</div>
+	</div>
+		<!--banner设置-->
+		<div class="banner">
+			<div class="swiper-container">
+				    <div class="swiper-wrapper">
+				        <div class="swiper-slide">
+				        </div>
+				        <div class="swiper-slide">
+				        </div>
+				        <div class="swiper-slide">
+				        </div>
+				        <div class="swiper-slide">
+				        </div>
+				    </div>
+				    <div class="swiper-pagination"></div>
+	                <div class="swiper-scrollbar"></div>
+				</div>
+				
+		</div>
+		<!--中间过度-->
+		<div class="zhongjian">
+			<img src="images/jieshao.jpg" />
+		</div>
+		<!--详细商品设置-->
+		<div class="content">
+		</div>
+		<!--底部设置-->
+		<div class="footer">
+			<ul>
+					<li>
+						<a href="index.html">
+						<img src="images/shouye.png" class="icon">
+						<p style="color:deeppink;">首页</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+						<img src="images/shangcheng .png" class="icon">
+						<p>商城</p>
+						</a>
+					</li>
+				    <li>
+						<a href="#">
+						<img src="images/fenlei.png" class="icon">
+						<p>分类</p>
+						</a>
+					</li>
+					<li>
+						<a href="shoppingcar.html">
+						<img src="images/car.png" class="icon">
+						<p >购物车</p>
+						</a>
+					</li>
+					
+					<li>
+						<a href="mine.html">
+						<img src="images/mine.png" class="icon">
+						<p>我的</p>
+						</a>
+					</li>
+			</ul>
+		</div>
+	</body>
+	<script>
+		//获取banner图
+		$.ajax({
+			type:"get",
+			url:'http://datainfo.duapp.com/shopdata/getBanner.php',
+			dataType:'jsonp',
+			success:function(data){
+				console.log(data);
+				var banners=document.getElementsByClassName('swiper-slide');
+				for(var i=0;i<4;i++){
+					var val=eval(data[i].goodsBenUrl);
+				    //console.log(val[0]);
+
+				    $(banners[i+1]).html('<img src="'+val[0]+'">');
+				}
+				$(banners[0]).html('<img src="'+eval(data[3].goodsBenUrl)[0]+'">');
+				$(banners[5]).html('<img src="'+eval(data[0].goodsBenUrl)[0]+'">');
+			},
+			error:function(){
+			}
+		});
+		$(function(){
+		  $('.wrapper').navbarscroll();
+	    });
+	    //输入搜索信息
+	    $('#sou').click(function(){
+       	var word=encodeURI($('#search').val());
+		 	console.log(word);
+		 	$.ajax({
+			type:"get",
+			url:'http://datainfo.duapp.com/shopdata/selectGoodes.php',
+			dataType:'jsonp',
+			data:{selectText:word},
+			success:function(data){
+				console.log(data);
+				var content=document.getElementsByClassName('content');
+				$(content).html('');
+				var str='';
+					for(var i=0;i<data.length;i++){
+						str+='<div class="item1" goodsId="'+data[i].goodsID+'"style="background-image:url('+data[i].goodsListImg+');"><img src="images/tuijian.png" class="tuijian"><div class="inbox"><span id="txt">'+data[i].goodsName.slice(0,10)+'</span></div></div>';
+					}
+					$(content).html(str);
+					$('.item1').on('click',function(){
+       	            window.location.href='clothnews.html#'+this.getAttribute('goodsId');//传goodsId
+                });
+			},
+			error:function(){
+			}
+		  });
+       });
+	    
+		var mySwiper = new Swiper('.swiper-container',{
+			pagination : '.swiper-pagination',
+			autoplay: 2000,
+			loop:true
+	         // 如果需要滚动条
+		})
+		 $('#scroll > li').click(function(){
+		 	var classId=this.getAttribute('classID');
+		 	console.log(classId);
+		 	$.ajax({
+			type:"get",
+			url:'http://datainfo.duapp.com/shopdata/getGoods.php',
+			dataType:'jsonp',
+			data:{classID:classId},
+			success:function(data){
+				console.log(data);
+				var content=document.getElementsByClassName('content');
+				$(content).html('');
+				var str='';
+					for(var i=0;i<10;i++){
+						str+='<div class="item1" goodsId="'+data[i].goodsID+'"style="background-image:url('+data[i].goodsListImg+');"><img src="images/tuijian.png" class="tuijian"><div class="inbox"><span id="txt">'+data[i].goodsName.slice(0,10)+'</span></div></div>';
+					}
+					$(content).html(str);
+					$('.item1').on('click',function(){
+       	            window.location.href='clothnews.html#'+this.getAttribute('goodsId');
+                });
+			},
+			error:function(){
+			}
+		  });
+		 });
+		//此处获取对应的商品信息
+		 $.ajax({
+				type:"get",
+				url:'http://datainfo.duapp.com/shopdata/getGoods.php',
+				dataType:'jsonp',
+				success:function(data){
+					//console.log(data);
+					var content=document.getElementsByClassName('content');
+					var str='';
+					for(var i=0;i<10;i++){
+						//console.log(data[i].goodsID);
+						str+='<div class="item1" goodsId="'+data[i].goodsID+'"style="background-image:url('+data[i].goodsListImg+');"><img src="images/tuijian.png" class="tuijian"><div class="inbox"><span id="txt">'+data[i].goodsName.slice(0,10)+'</span></div></div>';
+					}
+					$(content).html(str);
+					$('.item1').on('click',function(){
+       	            window.location.href='clothnews.html#'+this.getAttribute('goodsId');//传goodsId
+                });
+				},
+				error:function(){
+				}
+			});
+
+	</script>
+</html>

@@ -1,0 +1,109 @@
+
+			*{
+				padding: 0;
+				margin: 0;
+				font-size: 0.14rem;
+				font-weight: normal;
+			}
+			a{
+				text-decoration: none;
+			}
+			ul li{
+				list-style-type: none;
+			}
+				.footer {
+				position: fixed;
+				bottom: -0.1rem;
+				height: 1.1rem;
+				border: 1px solid lightgray;
+				background-color: white;
+				width: 7.5rem;
+	
+			}
+			.footer ul li{
+				float: left;
+				width: 20%;
+				font-size: 0.22rem;
+				text-align: center;
+				height: 1rem;
+				margin-top: 0.1rem;
+			}
+			.footer ul li a{
+				color: #bcbcbc;
+			}
+			.footer ul li a:hover{
+				color: deeppink;
+			}
+			.icon{
+				width: 0.6rem;
+				height: 0.5rem;
+			}
+			.sp{
+				width: 0.8rem;
+			}
+			.addCar{
+				height: 1rem;
+				background-color:#ff5363;
+				border: none;
+				color: white;
+				width: 2.25rem;
+				float: left;
+				font-size: 0.35rem;
+			}
+			.buy{
+				height: 1rem;
+				background-color: orange;
+				border: none;
+				color: white;
+				width: 2.25rem;
+				float: left;
+				font-size: 0.35rem;
+			}
+			.swiper-container {
+			    height: 7rem;
+			    font-size: 1rem;
+			    text-align: center;
+			}  
+			.swiper-slide img{
+			width: 100%;
+			height: 7rem;
+			}
+			.banner{
+				width: 100%;
+				height: 7rem;
+				background-size: cover ;
+				clear: both;
+			}
+			h1{
+				font-size: 0.35rem;
+				height: 1rem;
+				padding-left: 0.2rem;
+			}
+			h2{
+				color: #f73c45;
+				font-size: 0.5rem;
+				padding-left: 0.2rem;
+			}
+			.detail{
+				margin-top: 0.25rem;
+				color: gray;
+				padding-left: 0.2rem;
+			}
+			.choice a li{
+				width: 100%;
+				height: 0.8rem;
+				border-bottom: 0.02rem solid gainsboro;
+				line-height: 0.8rem;
+				font-size: 0.3rem;
+				text-indent: 0.2rem;
+			}
+			.choice a li img{
+				width: 0.2rem;
+				height: 0.3rem;
+				margin-left: 4.5rem;
+			}
+			.line{
+				margin-top: 0.27rem;
+				height: 0.1rem;
+				background-color: honeydew;
+			}

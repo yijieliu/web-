@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商城设置页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="js/rem.js"></script>
+		<script src="js/jQuery.js"></script>
+		<link rel="stylesheet" href="css/mine.css" /> 
+		
+	</head>
+	<body>
+		<!--头部设置-->
+		<div class="header">
+			<a href="#" id="set" data-role = "button"><span class="right">设置</span></a>
+		</div>
+		<!--内容设置-->
+		<div class="content">
+			<div class="mine">
+				<div class="yonghuming">
+				</div>
+				<div class="username">用户名</div>
+			</div>
+			<ul>
+				<a href="#"><li><img src="images/dizhi.png">&nbsp;&nbsp;我的收货地址<span style="float: right;" ><img src="images/right1.png" class="right"></span></li></a>
+				<a href="#"><li><img src="images/zhanghu .png">&nbsp;&nbsp;账户与安全<span style="float: right;" ><img src="images/right1.png" class="right"></span></li></a>
+				<a href="#"><li><img src="images/yinxiao.png">&nbsp;&nbsp;音效与通知<span style="float: right;" ><img src="images/right1.png" class="right"></span></li></a>
+				<a href="#"><li><img src="images/yinsi.png">&nbsp;&nbsp;隐私<span style="float: right;" ><img src="images/right1.png" class="right"></span></li></a>
+				<a href="#"><li><img src="images/tongyong.png">&nbsp;&nbsp;通用<span style="float: right;" ><img src="images/right1.png" class="right"></span></li></a>
+				<a href="#"><li><img src="images/guanyu.png">&nbsp;&nbsp;关于手机商城<span style="float: right;" ><img src="images/right1.png" class="right"></span></li></a>
+			</ul>
+		</div>
+		<!--底部设置-->
+		<div class="footer">
+			<ul>
+					<li>
+						<a href="index.html">
+						<img src="images/shouye.png" class="icon">
+						<p style="color:deeppink;">首页</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+						<img src="images/shangcheng .png" class="icon">
+						<p>商城</p>
+						</a>
+					</li>
+				    <li>
+						<a href="#">
+						<img src="images/fenlei.png" class="icon">
+						<p>分类</p>
+						</a>
+					</li>
+					<li>
+						<a href="shoppingcar.html">
+						<img src="images/car.png" class="icon">
+						<p >购物车</p>
+						</a>
+					</li>
+					
+					<li>
+						<a href="mine.html">
+						<img src="images/mine.png" class="icon">
+						<p>我的</p>
+						</a>
+					</li>
+			</ul>
+		</div>
+	</body>
+	<script>
+		var userId=localStorage.getItem('username');
+		//跳转设置
+		$('#set').click(function(){
+		if(userId){
+			window.location.href="set.html";
+		}
+		else{
+			alert('请先登录');
+			window.location.href="login.html";
+		}
+		});
+        $('.btn').click(function(){
+			localStorage.removeItem("username");
+	        window.location.href="login.html";
+		});
+		$.ajax({
+				type:"get",
+				url:'http://datainfo.duapp.com/shopdata/getuser.php',
+				dataType:'jsonp',
+				data:{userID:userId},
+				success:function(data){
+					console.log(data);
+					$('.username').html(data[0].userID);
+				},
+				error:function(){
+				}
+			});
+	</script>
+</html>
+

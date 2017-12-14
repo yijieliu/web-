@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>设置退出页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="js/rem.js"></script>
+		<script src="js/jQuery.js"></script>
+		<link rel="stylesheet" href="css/set.css" />
+    </head>
+	<body>
+		<!--头部设置-->
+		<div class="header">
+			<a href="#" id="back"><img class="left" src="images/left.png"></a>
+			<span class="title">设置</span>
+		</div>
+		<!--列表内容设置-->
+		<div class="content">
+			<ul>
+				<a href="#"><li><img src="images/zhanghu .png">&nbsp;&nbsp;账户与安全<span style="float: right;" ><img src="images/right1.png" class="right"></span></li></a>
+				<a href="#"><li><img src="images/yinxiao.png">&nbsp;&nbsp;音效与通知<span style="float: right;" ><img src="images/right1.png" class="right"></span></li></a>
+				<a href="#"><li><img src="images/yinsi.png">&nbsp;&nbsp;隐私<span style="float: right;" ><img src="images/right1.png" class="right"></span></li></a>
+				<a href="#"><li><img src="images/tongyong.png">&nbsp;&nbsp;通用<span style="float: right;" ><img src="images/right1.png" class="right"></span></li></a>
+				<a href="#"><li><img src="images/guanyu.png">&nbsp;&nbsp;关于手机商城<span style="float: right;" ><img src="images/right1.png" class="right"></span></li></a>
+			</ul>
+			<button class="btn">退出当前账号</button>
+		</div>
+		<!--底部设置-->
+		<div class="footer">
+			<ul>
+					<li>
+						<a href="index.html">
+						<img src="images/shouye.png" class="icon">
+						<p style="color:deeppink;">首页</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+						<img src="images/shangcheng .png" class="icon">
+						<p>商城</p>
+						</a>
+					</li>
+				    <li>
+						<a href="#">
+						<img src="images/fenlei.png" class="icon">
+						<p>分类</p>
+						</a>
+					</li>
+					<li>
+						<a href="shoppingcar.html">
+						<img src="images/car.png" class="icon">
+						<p >购物车</p>
+						</a>
+					</li>
+					
+					<li>
+						<a href="mine.html">
+						<img src="images/mine.png" class="icon">
+						<p>我的</p>
+						</a>
+					</li>
+			</ul>
+		</div>
+	</body>
+	<script>
+	$('#back').click(function(){
+		window.history.back();
+	});
+		$('.btn').click(function(){
+			localStorage.removeItem("username");
+	        window.location.href="login.html";
+		});
+	</script>
+</html>
+

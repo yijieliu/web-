@@ -1,0 +1,178 @@
+
+			*{
+				padding: 0;
+				margin: 0;
+				font-size: 0.14rem;
+				font-weight: normal;
+			}
+			a{
+				text-decoration: none;
+			}
+			ul li{
+				list-style-type: none;
+			}
+			.header{
+				height: 1rem;
+				background-color: deeppink;
+				text-align: center;
+				padding-top: 0.4rem;
+			}
+			.header .title{
+				font-size: 0.35rem;
+				font-weight: normal;
+				float: left;
+				margin-left: 3rem;
+				margin-top: 0.5rem;
+				padding: 0;
+			}
+			.header .sousuo{
+				float: right;
+				width: 0.42rem;
+				margin-right: 0.9rem;
+				margin-top: -0.5rem;
+			}
+			#search{
+				width: 80%;
+				height: 0.65rem;
+				border: none;
+				background-color: white;
+				border-radius: 0.5rem;
+				font-size: 0.3rem;
+				text-indent: 0.2rem;
+				margin-left: 0.8rem;
+				float: left;
+			}
+			.swiper-container {
+			    height: 200px;
+			    font-size: 50px;
+			    text-align: center;
+			}  
+			.swiper-container img{
+			width: 100%;
+			height: 200px;
+			}
+			.wrapper{
+			height: 50px;
+			position: relative;
+			overflow: hidden;
+			}
+			.wrapper .scroller{
+				position: absolute;
+			}
+			.wrapper li{
+				height: 0.9rem;
+				float: left;
+				line-height: 0.9rem;
+				padding: 0 20px;
+				font-size: 0.35rem;
+			}
+			.cur{
+				border-bottom:0.15rem solid deeppink;
+				color:deeppink;
+			}
+			li:hover{
+				border-bottom: 0.08rem solid #f73c45;
+			}
+			.specail{
+				border-bottom: 0.08rem solid #f73c45;
+			}
+			.banner{
+				width: 100%;
+				height: 3.2rem;
+				background-size: cover ;
+				clear: both;
+			}
+			.lunbo{
+				float: right;
+				width: 0.7rem;
+				margin-right: 0.3rem;
+				margin-top: 2.8rem;
+			}
+			.zhongjian img{
+				width: 100%;
+				height: 200px;
+			}
+			#zimu{
+				font-size: 0.22rem;
+				margin-top: -0.28rem;
+				opacity: 0.8;
+			}
+			#hoter{
+				font-size: 0.36rem;
+				color:#e5e5e5;
+				margin-top:-0.14rem ;
+				opacity: 0.7;
+			}
+			.content:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			.content{
+				text-align: center;
+				
+				padding-bottom: 1.1rem;
+			}
+			.item1{
+				width: 3.3rem;
+				height: 2.22rem;
+				float: left;
+				margin-left: 0.26rem;
+				margin-bottom: 0.24rem;
+				background-size: cover;
+				text-align:center;
+			}
+			
+			.inbox{
+				height: 0.6rem;
+				width: 3.3rem;
+				background-color: deepskyblue;
+				margin-top: 1.62rem;
+				
+				color: yellow;
+				font-size: 0.22rem;
+				line-height: 0.6rem;
+				text-align: center;
+
+			}
+			#txt{
+				display: block;
+				margin-left: 0.45rem;
+			}
+			.tuijian{
+				width: 0.5rem;
+				height: 0.5rem;
+				float: right;
+			}
+			.footer {
+				position: fixed;
+				bottom: -0.1rem;
+				height: 1.1rem;
+				border: 1px solid lightgray;
+				background-color: white;
+				width: 7.5rem;
+	
+			}
+			.footer ul li{
+				float: left;
+				width: 20%;
+				font-size: 0.22rem;
+				text-align: center;
+				height: 1rem;
+				margin-top: 0.1rem;
+			}
+			.footer ul li a{
+				color: #bcbcbc;
+			}
+			.footer ul li a:hover{
+				color: deeppink;
+			}
+			.icon{
+				width: 0.6rem;
+				height: 0.5rem;
+			}
+			.sp{
+				width: 0.8rem;
+			}
+
+		

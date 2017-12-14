@@ -1,0 +1,107 @@
+
+			*{
+				padding: 0;
+				margin: 0;
+				font-size: 0.14rem;
+				font-weight: normal;
+			}
+			a{
+				text-decoration: none;
+			}
+			ul li{
+				list-style-type: none;
+			}
+			.header{
+				height: 1.28rem;
+				background-color:deeppink;
+				color: honeydew;
+			}
+			.header .left{
+				float: left;
+				width: 0.3rem;
+				height: 0.6rem;
+				margin-top: 0.5rem;
+				margin-left: 0.3rem;
+			}
+			.header .title{
+				font-size: 0.35rem;
+				font-weight: normal;
+				float: left;
+				margin-left: 2.8rem;
+				margin-top: 0.5rem;
+				padding: 0;
+			}
+			.header .soso{
+				float: right;
+				width: 0.42rem;
+				margin-right: 0.32rem;
+				margin-top: 0.5rem;
+			}
+			.content ul{
+				height: 5.2rem;
+			}
+			.content ul li{
+				border-bottom: 1px solid #bcbcbc;
+				height: 1rem;
+				line-height: 1rem;
+			}
+			.content ul a li{
+				font-size: 0.4rem;
+				color: black;
+			}
+			.content ul a li:hover{
+				color: deeppink;
+			}
+			.content ul a li img{
+				width: 0.45rem;
+				height: 0.45rem;
+				margin-left: 0.1rem;
+			}
+			.content ul a li .right{
+			width: 0.2rem;
+			height: 0.4rem;
+			margin-right: 0.2rem;
+			}
+			.btn{
+				width: 100%;
+				height: 1rem;
+				font-size: 0.4rem;
+				color: deeppink;
+				background-color:white;
+				border:0.04rem solid deeppink;
+				margin-top: 0.15rem;
+			}
+			.btn:hover{
+				background-color:deeppink;
+				color: white;
+			}
+			.footer {
+				position: fixed;
+				bottom: -0.1rem;
+				height: 1.1rem;
+				border: 1px solid lightgray;
+				background-color: white;
+				width: 7.5rem;
+	
+			}
+			.footer ul li{
+				float: left;
+				width: 20%;
+				font-size: 0.22rem;
+				text-align: center;
+				height: 1rem;
+				margin-top: 0.1rem;
+			}
+			.footer ul li a{
+				color: #bcbcbc;
+			}
+			.footer ul li a:hover{
+				color: deeppink;
+			}
+			.icon{
+				width: 0.6rem;
+				height: 0.5rem;
+			}
+			.sp{
+				width: 0.8rem;
+			}
